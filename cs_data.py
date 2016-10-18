@@ -6,20 +6,6 @@ import json
 import base64
 from pyasn1.codec.ber import decoder
 
-def prec(root, level=0, path=""):
-    if level > 5:
-        return
-    count = 0
-    for r in root:
-        p = path + "." + str(count)
-        print("%d: [%s] %s %s" % (level, path, "    " * level, str(r)))
-        try:
-            prec(r, level+1, p)
-        except:
-            pass
-        count += 1
-        if count > 100:
-            break
 
 def main():
     if len(sys.argv) < 3:
